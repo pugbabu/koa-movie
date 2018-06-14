@@ -12,7 +12,7 @@
           <div class="list-rate">
             <template v-if="item.score !== 0">
               <el-rate
-                :value="item.score / 2"
+                :value="(item.score / 2).toFixed(1)"
                 disabled
                 show-score
                 text-color="#ff9900"

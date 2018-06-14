@@ -4,20 +4,27 @@
 
 > 电影预告网
 
-## Build Setup
+## 项目启动
 
-``` bash
-# install dependencies
-npm install
+### MongoDB安装
+[官方文档](https://docs.mongodb.com)
+#### 启动mongodb
+```bash
+cd /usr/local/mongodb/bin
+./mongod
+```
+### 启动后端服务
+```bash
+cd 项目文件夹
+cd server
+node app.js
+首次启动app时，先require('./task/nowplaying')放开，爬取数据并保存到数据库
+数据库有原始数据后，可以再注视require，并node app.js
+```
 
-# serve with hot reload at localhost:8080
+### 启动前端项目
+```bash
+cd koaMovie
 npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
-测试哈哈的开发
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
