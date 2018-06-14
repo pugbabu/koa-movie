@@ -3,7 +3,7 @@ const base = 'https://movie.douban.com/subject/'
 const videoBase = 'https://movie.douban.com/trailer/231093/#content'
 const doubanId = '27133303'
 
-
+console.log(doubanId, '-----')
 const sleep = time => new Promise(resolve => {
   setTimeout(resolve, time)
 })

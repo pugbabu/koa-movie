@@ -28,11 +28,10 @@ const sleep = time => new Promise(resolve => {
   }
   console.log(111)
   const result = await page.evaluate(() => {
-    console.log(1212112)
+    console.log('啊哈哈')
     let $ = window.$
     let items = $('.list-wp a')
     let links = []
-    console.log(items)
     if (items.length >= 1) {
       items.each((index, item) => {
         let it = $(item)
@@ -48,6 +47,7 @@ const sleep = time => new Promise(resolve => {
         })
       })
     }
+    console.log(links, 'enheng')
     return links
   })
   browser.close()

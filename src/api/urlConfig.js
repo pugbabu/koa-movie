@@ -1,0 +1,5 @@
+const serverRoot = 'http://127.0.0.1:4455'
+export const allMovies =  '/api/v0/allMovies'
+export const nowplaying = '/api/v0/nowplaying'
+export const comingSoon = '/api/v0/comingSoon'
+export const latestPopular = '/api/v0/latestPopular'

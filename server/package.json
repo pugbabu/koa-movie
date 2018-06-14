@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "glob": "^7.1.2"
+  }
+}
