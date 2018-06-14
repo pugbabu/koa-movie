@@ -1,5 +1,8 @@
 const cp = require('child_process')
 const { resolve } = require('path')
+const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
+const Movie = mongoose.model('Movie')
 ;(async () => {
     const script = resolve(__dirname, '../crawler/index.js')
     const child =  cp.fork(script, [])
@@ -20,6 +23,26 @@ const { resolve } = require('path')
 
     child.on('message', data => {
         let result = data.result
-        console.log(result)
+        let res = []
+        result.forEach(async item => {
+          let movie = await Movie.findOne({
+            doubanId: item.doubanId
+          })
+          if (!movie) {
+            movie = new Movie(item)
+            res.push(movie.doubanId)
+            // console.log(movie)
+            console.log('~~~')
+            // await movie.save()
+            await movie.save(function(err) {// 之前这里一直存不进去，后来把douban-trailer数据库删了，换douban数据库就好了
+              if (err) {
+                throw new Error(err)
+              } else {
+                console.log('ok')
+              }
+            })
+          }
+        })
+        
     })
 })()
